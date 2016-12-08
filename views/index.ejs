@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>Index.ejs</title>
+        <meta charset='utf-8'>
+    </head>
+    <body>
+        <h1>Dashboard</h1>
+        <a href="/new">New Friend</a>
+        <% if (errors) { %>
+            <p><%= errors %></p>
+        <% } %> 
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for ( var i = 0; i < friends.length; i++ ) { %>
+                    <tr>
+                        <td><%= friends[i].name %></td>
+                        <td><%= friends[i].age %></td>
+                        <td><a href="/edit/<%= friends[i]._id %>">E</a></td>
+                        <td>
+                            <form action="/destroy/<%= friends[i]._id %>" method="POST">
+                                <input type="submit" value="X">
+                            </form>
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </body>
+</html>

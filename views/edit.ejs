@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>Edit.ejs</title>
+        <meta charset='utf-8'>
+    </head>
+    <body>
+        <h1>Edit</h1>
+        <a href="/">Home</a>
+        <%= friend %>
+        <form action="/update/<%= friend._id %>" method="POST">
+            <input type="text" name="name" value="<%= friend.name %>">
+            <input type="Number" name="age" value="<%= friend.age %>">
+            <input type="submit" value="Update!">
+        </form>
+    </body>
+</html>
